@@ -1,0 +1,97 @@
+.nav{
+  background-color: rgb(199, 138, 64);
+  width: 25%;
+}
+
+.AddAdress{
+  position: abs;
+  background-color: rgba(0,0,0,0.2);
+  display:-moz-popup;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+ 
+}
+
+
+.AddAdress label{
+
+  font-size: 18px;
+  font-weight: bolder;
+}
+.AddAdress input{
+  font-size: 18px;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.EditAddress{
+  position:absolute;
+  background-color: rgba(0,0,0,0.2);
+  display:contents;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.EditAddress label{
+
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.EditAddress input{
+  font-size: 18px;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.btn-primary{
+  border:none;
+  background: green;
+  padding : 7px 15px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  
+}
+.btn-secondary{
+  border:none;
+  background: green;
+  padding : 7px 15px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  
+}
+
+.btn-del {
+  padding: 4px  15px;
+  text-align: center;
+  background-color:red ;
+  font-size: smaller;
+  margin-right: 40px;
+
+
+}
+.btn{
+  padding: 4px  15px;
+  text-align: center;
+  background-color:green ;
+  font-size: smaller;
+  
+  
+  
+}
+.table{
+ background-color: lightblue;
+ width:30%;
+ text-align: center;
+ justify-content: center;
+ font-weight: bolder;
+ font-size: large;
+ 
+ }
