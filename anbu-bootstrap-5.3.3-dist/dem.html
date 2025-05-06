@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jqueryrouter@2.2.11/dist/js/jquery.router.min.js"></script>
+</head>
+
+<body >
+    <!--nav- model-->
+    <nav class="navbar navbar-inverse  bg-primary">
+        <div class="container-fluid">
+            <div class="navbar-header  ">
+
+                <a class="navbar-brand glyphicon glyphicon-globe " href="#"></a>
+
+            </div>
+
+            <ul class="nav navbar-nav ">
+                <li> <a class="navbar-brand glyphicon glyphicon-user " href="#" id="button1">ADD</a></li>
+                <li><a class="active glyphicon glyphicon-home " href="#">Home</a></li>
+                <li><a class=" glyphicon glyphicon-plus " href="#" id="backup">New</a></li>
+                <li><a class=" glyphicon glyphicon-edit " href="#" id="edit">Edit</a></li>
+                <li><a class=" glyphicon glyphicon-trash " href="#" id="del">Delete</a></li>
+            </ul>
+        </div>
+    </nav>
+
+     <!---search bar-->
+     <div >
+        <form class="navbar-form">
+            <div class="form-group ">
+                <input type="text" class="form-control" placeholder="Search" id="myInput">
+            </div>  
+        </form>
+    </div>
+    <br>
+
+    <!--output table-->
+    <div class="container-fluid">
+        <table class="table table-hover bg-info" id="myTable tr">
+            <thead>
+                <tr>
+                    <th>First name</th>
+                    <th>Date-Of-Birth</th>
+                    <th>MobileNo</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="table_td">
+                <tr>
+                    <td>anub</td>
+                    <td>1997-07-28</td>
+                    <td>123467890</td>
+                    <td>salem</td>
+                    <td>TamilNadu</td>
+                    <td>----</td>
+                </tr>
+
+            </tbody>
+        </table>
+         <!--popup for edit function-->
+        <div class="container">
+
+            <div class="modal fade" id="editpop" role="dialog">
+                <div class="modal-dialog">
+    
+                    <div class="modal-content">
+                        <div class="modal-header  bg-info">
+                            <button type="button" class="close  glyphicon glyphicon-close" aria-label="Close"
+                                data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title ">Get The Information</h4>
+                        </div>
+                        <div class="modal-body ">
+                            <!-- create the form-->
+                            <form class="row g-3 needs-validation " novalidate>
+                                <div class="col-md-4">
+    
+                                    <label for="validationCustom01" class="form-label">First name</label>
+                                    <input type="text" class="form-control" id="validationCustom01" value=" " required>
+                                    <div class="valid-feedback"> Looks good! </div>
+    
+                                    <br>
+                                    <label for="validationCustomMobileNo" class="form-label">MobileNo</label>
+                                    <div class="input-group">
+    
+                                        <input type="text" class="form-control" id="validationCustomMobileNo"
+                                            aria-describedby="inputGroupPrepend" required>
+                                        <div class="invalid-feedback">
+                                            * Please enter MobileNo.
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <label for="validationCustom04" class="form-label" >State</label>
+                                    <select class="form-select" id="validationCustom04" required>
+                                        <option selected disabled value="">Choose...</option>
+                                        <option>TamilNadu</option>
+                                        <option>kerala</option>
+                                        <option>Andrapradesh</option>
+                                        <option>Karnataka</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        * Please select a state.
+                                    </div>
+                                    <br>                                    
+                                </div>    
+                                <div class="col-md-4">
+                                    <label for="validationCustom05" class="form-label" >Date-Of-Birth</label>
+                                    
+                                    <input type="date" class="form-control" id="validationCustom05" required>
+                                    <div class="invalid-feedback">
+                                        * Please enter a DoB.
+                                    </div>
+    
+                                    <br>
+                                    <label for="validationCustom03" class="form-label" >City</label>
+                                    <input type="text" class="form-control" id="validationCustom03" required>
+                                    <div class="invalid-feedback">
+                                        * Please provide a valid city.
+                                    </div>
+                                </div>
+                            </form>
+                            <!--footer-->
+                            <div class="modal-footer bg-info ">
+    
+                                <button type="button" class="btn btn-success" data-dismiss="modal" id=btnUpdate>Update</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>        
+                    </div>    
+                </div>
+            </div>    
+        </div>    
+    </div>
+ 
+
+    <!--popup model-->
+    <div class="container">
+        <div class="modal fade" id="newModal" role="dialog">
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+                    <div class="modal-header  bg-info">
+                        <button type="button" class="close  glyphicon glyphicon-close" aria-label="Close"
+                            data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title ">Get The Information</h4>
+                    </div>
+
+                    <div class="modal-body ">
+                        <!-- create the form-->
+                        <form class="row g-3 needs-validation " novalidate>
+                            <div class="col-md-4">
+
+                                <label for="validationCustom01" class="form-label">First name</label>
+                                <input type="text" class="form-control" id="validationCustom01" value=" " required>
+                                <div class="valid-feedback"> Looks good! </div>
+
+                                <br>
+                                <label for="validationCustomMobileNo" class="form-label">MobileNo</label>
+                                <div class="input-group">
+
+                                    <input type="text" class="form-control" id="validationCustomMobileNo"
+                                        aria-describedby="inputGroupPrepend" required>
+                                    <div class="invalid-feedback">
+                                        * Please enter MobileNo.
+                                    </div>
+                                </div>
+                                <br>
+                                <label for="validationCustom04" class="form-label" >State</label>
+                                <select class="form-select" id="validationCustom04" required>
+                                    <option selected disabled value="">Choose...</option>
+                                    <option>TamilNadu</option>
+                                    <option>kerala</option>
+                                    <option>Andrapradesh</option>
+                                    <option>Karnataka</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    * Please select a state.
+                                </div>    
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="validationCustom05" class="form-label" >Date-Of-Birth</label>
+                                <input type="date" class="form-control" id="validationCustom05"   required>
+                                <div class="invalid-feedback">
+                                    * Please enter a DoB.
+                                </div>
+
+                                <br>
+                                <label for="validationCustom03" class="form-label" >City</label>
+                                <input type="text" class="form-control" id="validationCustom03" required>
+                                <div class="invalid-feedback">
+                                    * Please provide a valid city.
+                                </div>
+                            </div>
+                        </form>
+                        <!--footer-->
+                        <div class="modal-footer bg-info ">
+
+                            <button type="submit" class="btn btn-success" data-dismiss="modal" id=btnsave>save</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+   
+    <script>
+        //popup-code
+        $(document).ready(function () {
+            $("#button1").click(function () {
+                $("#newModal").modal("toggle");
+            });
+        });
+
+        //.search-bar..//
+           
+        $("#myInput").on("keyup", function () {
+                    var value = $(this).val().toLowerCase();
+                $("#table_td").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+
+         //---.script-table.....//
+        $(document).ready(function(){
+            $("#btnsave").click(function () {
+
+                let newHtml = GetHtml().replace("$[name]", $("#validationCustom01").val())
+                .replace("$[date]", $("#validationCustom05").val())
+                .replace("$[mobileno]", $("#validationCustomMobileNo").val())
+                .replace("$[city]", $("#validationCustom03").val())
+                .replace("$[state]", $("#validationCustom04").val())
+                .replace("$[action]", "Edit").replace("$[Delete]", "Delete");
+
+                $("#table_td").append(newHtml);
+
+            });  
+            
+            $("#btnUpdate").click(function () {
+
+                let newHtml = GetHtml().replace("$[name]", $("#validationCustom01").val()).replace("$[date]", $("#validationCustom05").val()).replace("$[mobileno]", $("#validationCustomMobileNo").val()).replace("$[city]", $("#validationCustom03").val()).replace("$[state]", $("#validationCustom04").val()).replace("$[action]", "Edit").replace("$[Delete]", "Delete");
+
+                $("#table_td").append(newHtml);
+
+                $("#btnsave").show(); 
+                
+               
+            });
+
+            $(document).on("click", "#A_edit", function () {
+
+               $("#editpop").modal("toggle");
+
+                $("#btnsave").hide();
+
+                $("#btnUpdate").show();
+
+                $("#btnUpdate").focus();
+
+                $("#validationCustom01").val($(this).parent().parent().find('.name').html());
+
+                $("#validationCustom05").val($(this).parent().parent().find('.date').html());
+
+                $("#validationCustomMobileNo").val($(this).parent().parent().find('mobileno').html());
+
+                $("#validationCustom03").val($(this).parent().parent().find('city').html());
+
+                $("#validationCustom04").val($(this).parent().parent().find('state').html());  
+
+                
+            });
+
+
+            $(document).on("click", "#A_delete", function () {
+
+                $(this).parents("tr").remove();
+
+                $("#btnsave").show();
+            });
+        });
+
+    
+        function GetHtml() {
+
+        return "<tr><td class='First name'>$[name]</td>"
+
+        + "<td class='Date-Of-Birth'>$[date]</td>"
+
+        + "<td class='MobileNo'>$[mobileno]</td>" +  "<td class='City'>$[city]</td>"
+
+        +  "<td class=State'>$[state]</td>"
+
+        + "<td class='action'><a href='#' id='A_edit'> $[action] </a> <a href='#' id='A_delete'>$[Delete]</a></td></tr>";
+
+        }
+
+    </script>
+
+</body>
+
+</html>

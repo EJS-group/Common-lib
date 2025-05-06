@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jqueryrouter@2.2.11/dist/js/jquery.router.min.js"></script>
+    <title></title>
+</head>
+<body>
+     <!--nav- model-->
+     <nav class="navbar  bg-info col-md-12">
+        <div class="container-fluid">
+            <div class="navbar-header  ">
+
+                <a class="navbar-brand glyphicon glyphicon-globe " href="#"></a>
+
+            </div>
+            <ul class="nav navbar-nav ">
+                <li> <a class="navbar-brand glyphicon glyphicon-user " href="#" id="button1"></a></li>
+                <li><a class="active glyphicon glyphicon-home " href="#"></a></li>
+                <li><a class=" glyphicon glyphicon-plus " href="#" id="backup"></a></li>
+                <li><a class=" glyphicon glyphicon-edit " href="#" id="edit"></a></li>
+                <li><a class=" glyphicon glyphicon-trash " href="#" id="del"></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"  id="btn"></span> Login</a></li>
+           </ul>
+        </div>
+    </nav>
+    
+    <!--table 1 container-->
+    <div class="container">
+
+        <div class="modal fade" id="editpop" role="dialog">
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+                    <div class="modal-header  bg-info">
+                        <button type="button" class="close  glyphicon glyphicon-close" aria-label="Close"
+                            data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title ">Get The Information</h4>
+                    </div>
+                    <div class="modal-body ">
+                        <!-- create the form-->
+                        <form class="row g-3 needs-validation " novalidate>
+                            <div class="col-md-4">
+                                <input type="hidden" id="edit" value="" />
+                                    
+                                <label for="txtId" class="form-label">ID</label>
+                                <input type="text" name="Id" id="txtId" autocomplete="on" value="1" />
+                                <div class="valid-feedback"> Looks good! </div>
+
+                                <br>
+                                <label for="txtName" class="form-label">Name</label>
+                                <div class="input-group">
+
+                                    <input type="text" name="Name" id="txtName"  autocomplete="on" value="" />
+                                    <div class="invalid-feedback">
+                                        * Please enter MobileNo.
+                                    </div>
+                                </div>
+                                <br>
+                                <label for="txtCountry" class="form-label" >Country</label>
+                                <select class="form-select"  id="txtCountry"  autocomplete="on" value="" required>
+                                    <option selected disabled value="">Choose...</option>
+                                    <option>TamilNadu</option>
+                                    <option>kerala</option>
+                                    <option>Andrapradesh</option>
+                                    <option>Karnataka</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    * Please select a state.
+                                </div>
+                                                                 
+                            </div>    
+                           
+                        </form>
+                        <!--footer-->
+                        <div class="modal-footer bg-info ">
+
+                            <button type='button' id='btnAdd'  class="btn btn-primary" data-dismiss="modal">Add</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>        
+                </div>    
+            </div>
+        </div>    
+    </div>
+   
+    <!--table 2 container-->
+    <div>
+        <table id="tblCustomers" class="table bg-info">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Country</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+  
+
+       
+    
+    <!-- Modal -->
+    <div class="modal fade" id="modalId"  role="dialog" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title" id="modalTitleId">
+                      Login User
+                    </h3>
+                    <br>
+                    
+                    <form action="/action_page.php">
+                        <div class="form-group">
+                          <label for="email">Email:</label>
+                          <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                        </div>
+                        <div class="form-group">
+                          <label for="pwd">Password:</label>
+                          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+                        </div>
+                        <div class="checkbox">
+                          <label><input type="checkbox" name="remember"> Remember me</label>
+                        </div>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                      </form>
+                      <br>
+                      <button type="button" class="btn btn-secondary bg-danger" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                    
+                </div>
+               
+            </div>
+        </div>
+    </div>
+
+    
+    <!--script-->
+    <script type="text/javascript">
+
+      //Add-pop -login//
+      $(document).ready(function () {
+        $("#btn").click(function () {
+          $("#modalId").modal({ backdrop: true });
+        });
+      });
+        
+        //popup in add detail
+        $(document).ready(function () {
+            $("#button1").click(function () {
+                $("#editpop").modal("toggle");
+            });
+        });
+
+        $(function () {
+            $('#btnAdd').on('click', function () {
+                var name, country, id;
+                id = $("#txtId").val();
+                name = $("#txtName").val();
+                country = $("#txtCountry").val();
+
+                var edit = "<a class='edit' href='#' >Edit</a>";
+                var del = "<a class='delete' href='#'>Delete</a>";
+
+                if (name == "" || country == "") {
+                    alert("Name and Country fields required!");
+                } else {
+                    var table = "<tr><td>" + id + "</td><td>" + name + "</td><td>" + country + "</td><td>" + edit + "</td><td>" + del + "</td></tr>";
+                    $("#tblCustomers").append(table);
+                }
+                id = $("#txtId").val("");
+                name = $("#txtName").val("");
+                country = $("#txtCountry").val("");
+                Clear();
+            });
+
+            $('#btnUpdate').on('click', function () {
+                var name, country, id;
+                id = $("#txtId").val();
+                name = $("#txtName").val();
+                country = $("#txtCountry").val();
+
+                $('#tblCustomers tbody tr').eq($('#edit').val()).find('td').eq(1).html(name);
+                $('#tblCustomers tbody tr').eq($('#edit').val()).find('td').eq(2).html(country)
+
+                $('#btnAdd').show();
+                $('#btnUpdate').hide();
+                Clear();
+            });
+
+            $("#tblCustomers").on("click", ".delete", function (e) {
+                if (confirm("Are you sure want to delete this record!")) {
+                    $(this).closest('tr').remove();
+                } else {
+                    e.preventDefault();
+                }
+            });
+
+            $('#btnClear').on('click', function () {
+                Clear();
+            });
+
+            $("#tblCustomers").on("click", ".edit", function (e) {
+                var row = $(this).closest('tr');
+                $('#edit').val($(row).index(''));
+                var td = $(row).find("td");
+                $('#txtId').val($(td).eq(0).html());
+                $('#txtName').val($(td).eq(1).html());
+                $('#txtCountry').val($(td).eq(2).html());
+                $('#btnAdd').hide();
+                $('#btnUpdate').show();
+            });
+        });
+        function Clear() {
+            $("#txtId").val("");
+            $("#txtName").val("");
+            $("#txtCountry").val("");
+            $("#hfRowIndex").val("");
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+    <title>DUPLICTE IS MULTIPLE</title>
+   <style>
+    input{
+        background-color: blanchedalmond;
+        color: black;
+    }
+   </style>
+
+    <body>
+        <div id="div">
+            <input type="type" id="idname" oninput="fun()" value="">
+            <button onclick="fun()">submit</button>
+        </div>
+        <script>
+            function fun() {
+                /*Getting the number of text fields*/
+                var number = document.getElementById("idname").value;
+                /*Generating text fields dynamically in the same div itself*/
+                for(var i=0; i<number; i++) 
+                {
+                    var text= document.createElement("input");
+                    text.type = "text";
+                    text.value = " ";
+                    document.getElementById('div').appendChild(text);
+                    document.body.appendChild(text);
+                }
+            }
+           
+        </script>
+    </body>
+</html>

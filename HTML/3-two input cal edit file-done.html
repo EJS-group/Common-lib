@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <style>
+        table,th,td {
+            text-align: center;
+            border: 1px solid rgb(15, 0, 0);
+            border-radius: 10px;
+            background-color: grey;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        input {
+            padding: 10px 30px;
+            color: black;
+            background-color: aliceblue;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 10px 30px;
+            background-color: teal;
+            color: black;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <table >
+        <caption>ARITHMETIC CALCULATOR</caption>
+        <tr>
+            <td colspan="3"><input type="text" id="num1" placeholder="FIRST NUMBER"></td>
+        </tr>
+        <tr>
+            <td colspan="3"><input type="text" id="num2" placeholder="SECOND NUMBER"></td>
+        </tr>
+        <tr>
+            <td colspan="3"><input type="text" readonly id="result" placeholder="RESULT"></td>
+            <td><button id="clr" onclick="ac()">C</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="calculate('+')">+</button></td>
+            <td><button onclick="calculate('-')">-</button></td>
+            <td><button onclick="calculate('*')">x</button></td>
+            <td><button onclick="calculate('/')">/</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="inputNumber('1')">1</button></td>
+            <td><button onclick="inputNumber('2')">2</button></td>
+            <td><button onclick="inputNumber('3')">3</button></td>
+            <td><button onclick="calculate('%')">%</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="inputNumber('4')">4</button></td>
+            <td><button onclick="inputNumber('5')">5</button></td>
+            <td><button onclick="inputNumber('6')">6</button></td>
+            <td><button onclick="calculate('=')">=</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="inputNumber('7')">7</button></td>
+            <td><button onclick="inputNumber('8')">8</button></td>
+            <td><button onclick="inputNumber('9')">9</button></td>
+            <td><button onclick="inputNumber('0')">0</button></td>
+        </tr>
+    </table>
+
+    <script>
+        var selectedInput = document.getElementById("num1");
+
+        function inputNumber(num) {
+            selectedInput.value += num;
+        }
+        function ac() {
+            num1.value = "";
+            num2.value = "";
+            result.value = "";
+        }
+
+        function calculate(operator) {
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+            var result;
+
+            switch (operator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    result = num1 / num2;
+                    break;
+                case '%':
+                    result = num1 % num2;
+                    break;
+            }
+
+            document.getElementById("result").value = result;
+        }
+
+        document.getElementById("num1").onclick = function() {
+            selectedInput = document.getElementById("num1");
+        }
+
+        document.getElementById("num2").onclick = function() {
+            selectedInput = document.getElementById("num2");
+        }
+        
+</script>
+</body>
+</html>
+
+
+        

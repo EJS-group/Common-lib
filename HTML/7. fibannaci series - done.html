@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fibonacci Number</title>
+</head>
+<style>
+    body {
+        text-align: center;
+    }
+    input {
+        padding: 10px 20px;
+        font-size: large;
+        font-display: initial;
+        margin-bottom: 10px;
+        font-style: italic;
+        background-color: lightgoldenrodyellow;
+        color: darkslategray;
+    }
+    button{
+        padding: 10px;
+    }
+</style>
+<body>
+    <h2>Fibonacci Number</h2>
+
+    <input type="text" id="input" placeholder="Enter the max value:"><br>
+    <button onclick="calculateFibonacci()">submit</button>
+
+    <script>
+        function calculateFibonacci() {
+
+            // Get input value
+            var number = parseInt(document.getElementById("input").value);
+            var n1 = 0, n2 = 1, nextTerm,i;
+           
+            // print the n1 in display  
+            document.write ( "Fibonacci Series: ", n1); 
+
+            // Calculate Fibonacci sequence
+            for (let i = 1; i <=number; i++)
+             {
+                document.write ("," +  n1); // print the n1  
+                nextTerm = n1 + n2;
+                n1 = n2;
+                n2 = nextTerm;
+            }
+        }
+    </script>
+</body>
+</html>

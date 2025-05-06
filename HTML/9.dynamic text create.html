@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <title>dynamic text</title>
+    <style>
+        div{
+            text-align: center;
+            background-color: azure;
+            border: 2px soild black;
+            border-radius: 5px;  
+        }
+
+    </style>
+     
+    <body>
+        <div id="again">
+            <h2>TEXT BOX</h2>
+            <input type="text"  id="num1" placeholder="number1"><br>
+            <input type="text"  id="num2" placeholder="number1"><br>
+            <button onclick=myFunction() type="submit" id="btn">submit</button>
+            <p id="demo"></p>
+        </div>
+        <script>
+            function myFunction() {
+            var x = document.getElementById("again").innerHTML;
+            document.getElementById("demo").innerHTML = x;
+            }
+        </script>
+    
+    </body>
+</html>

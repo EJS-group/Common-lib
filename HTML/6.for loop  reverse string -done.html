@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>for loop reverse string</title>
+</head>
+<style>
+    body {
+        text-align: center;
+        padding: 10px 20px;
+    }
+
+    input {
+        background-color: aquamarine;
+        color: black;
+        padding: 10px 20px;
+        margin-bottom: 10px;
+    }
+</style>
+
+<body>
+    <h2>FOR LOOP REVERSE STRING</h2>
+    <!--display 1-->
+    <input type="text" id="inputstr" placeholder="string 1" ><br>
+    <!--display 2-->
+    <input type="text" onclick="reversestr()" id="output" readonly placeholder="string 2"><br>
+
+    <script>
+
+        function reversestr(input) {
+            
+            //inputstr
+            var input = document.getElementById("inputstr").value;  //get the value 
+            var newone = " ";        //create empty str
+            debugger
+            // for loop func 
+            for (var i = input.length - 1; i >= 0; i--) {
+                newone += input[i]; //data will be store in newone 
+
+            }
+            // finall display 2 the output//output in display
+            document.getElementById("output").value = newone;
+        }
+
+
+    </script>
+</body>
+
+</html>
