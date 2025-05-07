@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <title>NUMBER ONLY ACCEPT</title>
+    <style>
+        div {
+            text-align: center;
+            background-color: blanchedalmond;
+        }
+        input {
+            padding: 10px 20px;
+            margin-bottom: 10px;
+        }
+    </style>
+    <body>
+        <div id="num">
+            <h2>NUMBER ONLY ACCEPT</h2>
+            <input type="text" id="in" placeholder="NUMBER"><br>
+
+            <input type="text" onclick="checknumber()" ondblclick="dynamic()" readonly id="res" placeholder="NUMBER">
+            <p id="demo"></p>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script>
+            function checknumber() {
+                // Given input
+                var input = $("#in").val();
+                // Condition line
+                if (!Number.isInteger(Number(input))) {
+                    // Output line
+                    $("#res").val(input + ' is not a number');
+                } else {
+                    // Output line
+                    $("#res").val(input + ' is a number');
+                }
+            }
+
+            function dynamic() {
+                var x = $("#num").html();
+                $("#demo").html(x); 
+            }
+        </script>
+    </body>
+</html>

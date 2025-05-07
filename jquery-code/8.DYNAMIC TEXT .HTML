@@ -1,0 +1,41 @@
+<!DOCTYPE html>  
+<html>  
+    <head> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <style>
+            div{
+            text-align: center;
+           
+            }
+            input{
+                border: 1px  soild black ;
+                font-weight: bolder;
+                background-color: blanchedalmond;
+                color:black ;
+                padding: 10px 30px;
+            }
+            input[type="submit"]{
+                background-color: burlywood;
+                color: black;
+            }
+        </style>
+        
+        <script>  
+            $(document).ready(function(){  
+                $("button").click(function(){  
+                    $("#tet").appendTo("p");  
+                });  
+            });  
+        </script>  
+    </head>  
+    <body> 
+        <div id="tet">
+        <input type="text" >
+        <button>Add </button>
+        </div> 
+        <p> Text box</p>
+        <p>New box </p>
+    </body>  
+</html>  
+
+ 

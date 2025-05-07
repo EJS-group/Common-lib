@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>Fibonacci Series</title>
+    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        div{
+            text-align: center;
+        }
+        input{
+            background-color: lightgreen;
+            color: black;
+        }
+        input[type="submit"]{
+            background-color: darkgreen;
+            color: black;
+        }
+    </style>
+    <body>
+        <script>
+            $(document).ready(function(){
+                $("#generate").click(function(){
+                    var n = parseInt($("#n").val());
+                    var fibonacciSeries = generateFibonacci(n);
+                    $('#fib').text(fibonacciSeries.join(', '));
+                });   
+            });
+
+            function generateFibonacci(n) {
+                var series = [0, 1];
+                for (var i = 2; i < n; i++) {
+                    series[i] = series[i - 1] + series[i - 2];
+                }
+                return series;
+            }
+        </script>
+        <div>
+            <h2 style="color: blueviolet;">Fibonacci Series</h2>
+            <input type="number" id="n" placeholder="Enter a number"><br>
+            <input type="submit" id="generate" value="Series"><br>
+            Fibonacci Series:<p id="fib"></p>
+        </div>
+    </body>
+</html>

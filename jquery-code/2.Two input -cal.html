@@ -1,0 +1,71 @@
+<html>    
+    <head>    
+    <title> Simple Calculator</title>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>    
+    <script>    
+        //cdn//    
+        $(document).ready(function(){    
+            $("#btnAdd").on('click',function(){    
+                Add();    
+            });    
+            $("#btnSub").on('click',function(){    
+                Sub();    
+            })    
+            $("#btnMul").on('click',function(){    
+               Mul();    
+            })    
+            $("#btnDiv").on('click',function(){    
+               DIV();    
+            })    
+        });    
+        function Add(){    
+         var no1=parseInt($("#txt1").val());    
+         var no2=parseInt($("#txt2").val());    
+         var result =no1+no2; 
+          alert("The result is "+result);    
+        }    
+        function Sub(){    
+         var no1=parseInt($("#txt1").val());    
+         var no2=parseInt($("#txt2").val());    
+         var result =no1-no2;    
+          alert("The result is "+result);    
+        }    
+        function Mul(){
+            var no1=parseInt($("#txt1").val());    
+         var no2=parseInt($("#txt2").val());    
+         var result =no1*no2;    
+          alert("The result is "+result); 
+        }       
+        function DIV(){    
+         var no1=parseInt($("#txt1").val());    
+         var no2=parseInt($("#txt2").val());    
+         var result =no1/no2;    
+          alert("The result is "+result);    
+        }    
+    </script> 
+    <style>
+        div{
+            text-align: center;
+        }
+        input{
+            background-color: antiquewhite;
+            color: black;
+            padding: 10px;
+        }
+        
+    </style>
+
+    </head>    
+    <body> 
+        <div>  
+         First Number :<input type="text" id="txt1" placeholder="Enter first number"><br>    
+            Second Number:<input type="text" id="txt2" placeholder="Enter second number"><br>    
+            <input type="button" id="btnAdd" value="Add">    
+            <input type="button" id="btnSub" value="Sub">    
+            <input type="button" id="btnMul" value="Mul">    
+            <input type="button" id="btnDiv" value="Div"><br>
+            Result:<input type="text" id="txt3" readonly placeholder="Result"><br>    
+      </div>  
+      
+    </body>    
+</html>   

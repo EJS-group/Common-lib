@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arithmetic Calculator</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+    /* Your CSS here */
+    table, th, td {
+        text-align: center;
+        border: 1px solid rgb(15, 0, 0);
+        border-radius: 10px;
+        background-color: grey;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    input {
+        padding: 10px 30px;
+        color: black;
+        background-color: aliceblue;
+        border-radius: 10px;
+    }
+
+    button {
+        padding: 10px 30px;
+        background-color: teal;
+        color: black;
+        border-radius: 10px;
+    }
+</style>
+<body>
+    <table>
+        <caption>ARITHMETIC CALCULATOR</caption>
+        <tr>
+            <td colspan="3"><input type="text" id="num1" placeholder="FIRST NUMBER"></td>
+        </tr>
+        <tr>
+            <td colspan="3"><input type="text" id="num2" placeholder="SECOND NUMBER"></td>
+        </tr>
+        <tr>
+            <td colspan="3"><input type="text" readonly id="result" placeholder="RESULT"></td>
+            <td><button id="clr" onclick="ac()">ac</button></td>
+        </tr>
+        <tr>
+            <td><button class="op" onclick="calculate('+')">+</button></td>
+            <td><button class="op" onclick="calculate('-')">-</button></td>
+            <td><button class="op" onclick="calculate('*')">*</button></td>
+            <td><button class="op" onclick="calculate('/')">/</button></td>
+        </tr>
+        <tr>
+            <td><button class="nu" onclick="inputNumber('1')">1</button></td>
+            <td><button class="nu" onclick="inputNumber('2')">2</button></td>
+            <td><button class="nu" onclick="inputNumber('3')">3</button></td>
+            <td><button class="op" onclick="calculate('%')">%</button></td>
+        </tr>
+        <tr>
+            <td><button class="nu"  onclick="inputNumber('4')">4</button></td>
+            <td><button class="nu"  onclick="inputNumber('5')">5</button></td>
+            <td><button class="nu"  onclick="inputNumber('6')">6</button></td>
+            <td><button class="op" onclick="calculate('=')">=</button></td>
+        </tr>
+        <tr>
+            <td><button class="nu"  onclick="inputNumber('7')">7</button></td>
+            <td><button class="nu"  onclick="inputNumber('8')">8</button></td>
+            <td><button class="nu"  onclick="inputNumber('9')">9</button></td>
+            <td><button class="nu"  onclick="inputNumber('0')">0</button></td>
+        </tr>
+    </table>
+    <script>
+        $(document).ready(function() {
+            var selectedInput = $("#num1");
+
+            function inputNumber(num) {
+                selectedInput.val(selectedInput.val() + num);
+            }
+
+            function ac() {
+                $("#num1").val("");
+                $("#num2").val("");
+                $("#result").val("");
+            }
+
+            function calculate(operator) {
+                var num1 = parseFloat($("#num1").val());
+                var num2 = parseFloat($("#num2").val());
+                var result;
+
+                switch (operator) {
+                    case '+':
+                        result = num1 + num2;
+                        break;
+                    case '-':
+                        result = num1 - num2;
+                        break;
+                    case '*':
+                        result = num1 * num2;
+                        break;
+                    case '/':
+                        result = num1 / num2;
+                        break;
+                    case '%':
+                        result = num1 % num2;
+                        break;
+                }
+
+                $("#result").val(result);
+            }
+
+            $("#num1").click(function() {
+                selectedInput = $("#num1");
+            });
+
+            $("#num2").click(function() {
+                selectedInput = $("#num2");
+            });
+
+            $("#clr").click(function() {
+                ac();
+            });
+
+            $(".op").click(function() {
+                var operator = $(this).text();
+                calculate(operator); 
+            });
+
+            $(".nu").click(function(){
+                var num = $(this).text();
+                inputNumber(num);
+            });
+
+        });
+    </script>
+</body>
+</html>

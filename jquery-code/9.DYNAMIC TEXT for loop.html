@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DUPLICATE IS MULTIPLE</title>
+    <style>
+        input {
+            background-color: blanchedalmond;
+            color: black;
+            padding: 10px 10px;
+        }
+        input:hover{
+            background-color: rosybrown;
+
+        }
+        button:hover{
+            background-color: chartreuse;
+        }
+    </style>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="div">
+        <input type="number" id="idname" value="">
+        <button onclick="fun()">Submit</button>
+    </div>
+    <script>
+        function fun() {
+            // Get the number of text fields using jQuery
+            var number = $("#idname").val();
+             
+             // Clear existing content inside the div
+            $("#div").empty();
+
+            // for loop condition
+            for (var i = 0; i < number; i++) {
+                var text = $("<input>").attr("type", "text").val(" ");
+                // Append each text field to the div
+                $("#div").append(text); 
+            }
+        }
+    </script>
+</body>
+</html>
